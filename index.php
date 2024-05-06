@@ -54,6 +54,25 @@ foreach ($hotels as $hotel) { // Prendo ogni hotel all'interno dell'Array Hotels
     echo "Disponibilità parcheggio: " . ($hotel["parking"] ? "Sì" : "No") . "<br>"; // Stampo Disponibilità parcheggio: se è True, è Sì, se è Fale è No.
     echo "Voto: " . $hotel["vote"] . "<br>"; // Stampo il voto dell'Hotel,
     echo "Distanza dal centro: " . $hotel["distance_to_center"] . "<br><br>"; // Stampo la distanza dal centro. 
+
+
+// Questo blocco di codice non è molto elegante. Può essere ottimizzato facilmente. Il problema maggiore, tuttavia, è che dovrebbe funzionare ma non funziona: se il voto dell'hotel è 1, dovrebbe stampare l'hotel che ha una sola stella, se il voto è due, dovrebbe stampare l'hotel che ha due stelle etc...
+
+//    if ($hotel["vote"] === 1) {
+//        echo $hotel["name"];
+// }
+//    elseif ($hotel["vote"] === 2) {
+//        echo $hotel["name"];
+// }
+//    elseif ($hotel["vote"] === 3) {
+//        echo $hotel["name"];
+// }
+//    elseif ($hotel["vote"] === 4) {
+//        echo $hotel["name"];
+// }
+//    elseif ($hotel["vote"] === 5) {
+//        echo $hotel["name"];
+// }
 }
 ?>
 
@@ -73,12 +92,16 @@ foreach ($hotels as $hotel) { // Prendo ogni hotel all'interno dell'Array Hotels
         
 
         <main>
-
             <form method="get">
                 <input type="text" name="nome" placeholder="Cerca il tuo hotel">
                 <button type="submit">Cerca</button>
             </form>
-           
+            
+            <form method="get">
+                <input type="number" name="vote" max="5" placeholder="Filtra i risultati">
+                <button type="submit">Cerca</button>
+            </form>
+
             <table class="table table-striped">
                 <thead>
                     <tr>

@@ -48,8 +48,14 @@ $hotels = [
 
 ];
 
-foreach ($hotels as $hotel) {
-    echo $hotel["name"] . ": " . $hotel["vote"] . "<br>";
+
+foreach ($hotels as $hotel) { // Prendo ogni hotel all'interno dell'Array Hotels.
+    
+    echo "Nome: " . $hotel["name"] . "<br>"; // Stampo il nome dell'Hotel.
+    echo "Descrizione: " . $hotel["description"] . "<br>"; // La sua descrizione. 
+    echo "Disponibilità parcheggio: " . ($hotel["parking"] ? "Sì" : "No") . "<br>";
+    echo "Voto: " . $hotel["vote"] . "<br>"; // Stampo il voto dell'Hotel,
+    echo "Distanza dal centro: " . $hotel["distance_to_center"] . "<br><br>"; // Stampo la distanza dal centro. 
 }
 ?>
 </body>

@@ -40,6 +40,12 @@ $hotels = [
 
 ];
 
+if (!empty($_GET["nome"])) {
+    $nome_cercato = $_GET["nome"];
+    $hotels = array_filter($hotels, fn($hotel) => stripos($hotel['name'], $nome_cercato) !== false);
+}
+// Questo è un lungo copia-incolla. Tuttavia mi è chiaro cosa sta accadendo. Se il NOME ricercato con il metodo GET è diverso da VUOTO e il nome cercato è all'interno dei NOME dell'array HOTELS, applico un filter all'array stesso.
+
 
 foreach ($hotels as $hotel) { // Prendo ogni hotel all'interno dell'Array Hotels.
     
@@ -67,6 +73,12 @@ foreach ($hotels as $hotel) { // Prendo ogni hotel all'interno dell'Array Hotels
         
 
         <main>
+
+            <form method="get">
+                <input type="text" name="nome" placeholder="Cerca il tuo hotel">
+                <button type="submit">Cerca</button>
+            </form>
+           
             <table class="table table-striped">
                 <thead>
                     <tr>
